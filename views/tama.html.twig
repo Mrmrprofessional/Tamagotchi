@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Tamagotchi</title>
+    </head>
+    <body>
+        <h1>Information about your Tamagotchi</h1>
+        {% if inputs != 0  %}
+            <p>Here is the status of your tamagotchi:</p>
+            <ul>
+                {% for feed in inputs %}
+                    <li>{{ tama.getFeed }}</li>
+                {% endfor %}
+
+                {% for play in inputs %}
+                    <li>{{ tama.getPlay }}</li>
+                {% endfor %}
+
+                {% for sleep in inputs %}
+                    <li>{{ tama.getSleep }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <form action='/places' method='post'>
+            <label for='location'>Location</label>
+            <input id='location' name='location' type='text'>
+
+            <label for='photo'>Photo</label>
+            <input id='photo' name='photo' type='text'>
+
+            <button type='submit'>Add Place</button>
+        </form>
+        <form action='/feed' method='post'>
+            <button type='submit'>Feed</button>
+        </form>
+        <form action='/play' method='post'>
+            <button type='submit'>Play</button>
+        </form>
+        <form action='/sleep' method='post'>
+            <button type='submit'>Sleep</button>
+        </form>
+
+    </body>
+</html>
